@@ -3,7 +3,10 @@
 {% block title %} Mad Libs! {% endblock %}
 
 {% block content %}
-<form>
+<form action="/story">
+    {% for prompt in story.prompts %}
+        <input type="text" id={{prompt}} placeholder={{prompt}}><br/>
+    {% endfor %}
     <input type="submit" value="Go!"/>
 </form>
 {% endblock %}

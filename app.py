@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-from .stories import Story
+from stories import Story
 
 app = Flask(__name__)
 story = Story(
@@ -12,4 +12,4 @@ story = Story(
 @app.route('/')
 def show_form():
     '''Home page shows the madlibs beginning form'''
-    return render_template("form.html", story)
+    return render_template("form.html", story=story)
