@@ -13,3 +13,10 @@ story = Story(
 def show_form():
     '''Home page shows the madlibs beginning form'''
     return render_template("form.html", story=story)
+
+@app.route('/story')
+def show_story():
+    '''shows the constructed madlibs story'''
+    words = request.args
+    text = story.generate(words)
+    return render_template("story.html", story_text = text)

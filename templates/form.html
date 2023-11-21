@@ -3,9 +3,10 @@
 {% block title %} Mad Libs! {% endblock %}
 
 {% block content %}
-<form action="/story">
+<form action="/story" method="GET">
     {% for prompt in story.prompts %}
-        <input type="text" id={{prompt}} placeholder={{prompt}}><br/>
+        <label for={{prompt}}>{{prompt}}</label>
+        <input type="text" name={{prompt}} id={{prompt}} placeholder={{prompt}}><br/>
     {% endfor %}
     <input type="submit" value="Go!"/>
 </form>
